@@ -3,227 +3,114 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Contact - Hasnain Pathan Business Website</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<title>Contact Us - Hasnain Pathan Business</title>
 <style>
-  * {
-    margin: 0; padding: 0; box-sizing: border-box;
-  }
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: #f0f4f8;
     color: #333;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  header {
-    background: linear-gradient(90deg, #00bcd4, #007a8a);
-    color: white;
-    padding: 25px 20px;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0,188,212,0.4);
-  }
-  header h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-  }
-  nav {
-    background: white;
+    margin: 0;
     display: flex;
     justify-content: center;
-    gap: 25px;
-    padding: 15px 20px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    align-items: center;
+    padding: 40px 20px;
   }
-  nav a {
-    text-decoration: none;
-    color: #007a8a;
-    font-weight: 600;
-    font-size: 1.1rem;
-    position: relative;
-    padding: 6px 0;
-    transition: color 0.3s ease;
-  }
-  nav a::after {
-    content: '';
-    position: absolute;
-    left: 0; bottom: -4px;
-    width: 0;
-    height: 3px;
-    background: #00bcd4;
-    transition: width 0.3s ease;
-  }
-  nav a:hover, nav a:focus {
-    color: #00bcd4;
-  }
-  nav a:hover::after, nav a:focus::after {
+  .contact-container {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
     width: 100%;
+    max-width: 480px;
+    animation: fadeIn 1s ease forwards;
   }
-  .hero {
-    background: #007a8a;
-    color: white;
-    font-size: 2.2rem;
-    font-weight: 700;
-    text-align: center;
-    padding: 80px 20px;
-    letter-spacing: 1.2px;
-    box-shadow: inset 0 0 100px rgba(0,0,0,0.1);
-  }
-  .container {
-    max-width: 600px;
-    margin: 40px auto 80px;
-    padding: 0 20px;
-  }
-  h2 {
-    color: #007a8a;
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    border-bottom: 3px solid #00bcd4;
-    padding-bottom: 6px;
-    animation: fadeInUp 1s ease forwards;
-  }
-  @keyframes fadeInUp {
+  @keyframes fadeIn {
     from {opacity: 0; transform: translateY(20px);}
     to {opacity: 1; transform: translateY(0);}
   }
-  form {
-    background: white;
-    padding: 30px 25px;
-    border-radius: 16px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    animation: fadeInUp 1.2s ease forwards;
+  h2 {
+    color: #007a8a;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #00bcd4;
+    padding-bottom: 8px;
   }
   label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     font-weight: 600;
     color: #007a8a;
   }
-  input[type="text"],
-  input[type="email"],
-  textarea {
+  input, textarea {
     width: 100%;
-    padding: 12px 15px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    border: 2px solid #00bcd4;
+    padding: 12px 14px;
+    margin-bottom: 18px;
+    border: 1.8px solid #ddd;
+    border-radius: 8px;
     font-size: 1rem;
     transition: border-color 0.3s ease;
   }
-  input[type="text"]:focus,
-  input[type="email"]:focus,
-  textarea:focus {
+  input:focus, textarea:focus {
     outline: none;
-    border-color: #007a8a;
-  }
-  textarea {
-    resize: vertical;
-    min-height: 100px;
+    border-color: #00bcd4;
+    box-shadow: 0 0 8px #00bcd4;
   }
   button {
     background: linear-gradient(90deg, #00bcd4, #007a8a);
     color: white;
+    border: none;
+    padding: 14px 28px;
     font-size: 1.1rem;
     font-weight: 700;
-    border: none;
-    padding: 14px 30px;
-    border-radius: 25px;
+    border-radius: 30px;
     cursor: pointer;
+    width: 100%;
     transition: background 0.3s ease;
   }
   button:hover {
     background: linear-gradient(90deg, #007a8a, #00bcd4);
   }
-  #thankyou-message {
+  .thankyou-message {
     display: none;
-    margin-top: 30px;
-    font-size: 1.2rem;
     color: #007a8a;
+    font-weight: 700;
     text-align: center;
-    font-weight: 600;
-    animation: fadeInUp 1s ease forwards;
-  }
-  footer {
-    background: #007a8a;
-    color: white;
-    text-align: center;
-    padding: 20px 10px;
-    margin-top: auto;
-    font-weight: 600;
-    letter-spacing: 1px;
-  }
-  @media (max-width: 480px) {
-    header h1 {
-      font-size: 2rem;
-    }
-    .hero {
-      font-size: 1.7rem;
-      padding: 60px 10px;
-    }
-    nav {
-      flex-direction: column;
-      gap: 12px;
-    }
+    font-size: 1.3rem;
   }
 </style>
 </head>
 <body>
 
-<header>
-  <h1>Hasnain Pathan Business Website</h1>
-</header>
-
-<nav>
-  <a href="home.html">Home</a>
-  <a href="service.html">Services</a>
-  <a href="blog.html">Blog</a>
-  <a href="news.html">News</a>
-  <a href="about.html">About Us</a>
-  <a href="contact.html" class="active">Contact</a>
-</nav>
-
-<div class="hero">
-  Get In Touch With Us
-</div>
-
-<div class="container">
+<div class="contact-container">
   <h2>Contact Us</h2>
-  <form id="contact-form" action="https://formspree.io/f/xgvznlnk" method="POST">
+  <form id="contact-form" action="https://formspree.io/f/xpwlyyba" method="POST">
     <label for="name">Full Name *</label>
     <input type="text" id="name" name="name" required placeholder="Your full name" />
     
     <label for="email">Email Address *</label>
-    <input type="email" id="email" name="_replyto" required placeholder="Your email address" />
+    <input type="email" id="email" name="_replyto" required placeholder="Your email" />
     
     <label for="phone">Phone Number</label>
-    <input type="text" id="phone" name="phone" placeholder="Your phone number" />
-    
-    <label for="subject">Subject *</label>
-    <input type="text" id="subject" name="subject" required placeholder="Subject of your message" />
+    <input type="tel" id="phone" name="phone" placeholder="Your phone number" />
     
     <label for="message">Message *</label>
-    <textarea id="message" name="message" required placeholder="Write your message here..."></textarea>
+    <textarea id="message" name="message" rows="5" required placeholder="Your message"></textarea>
+    
+    <input type="text" name="_gotcha" style="display:none" />
     
     <button type="submit">Send Message</button>
   </form>
-  
-  <div id="thankyou-message">
-    Thank you! Your message has been sent successfully. We will get back to you soon.
+  <div class="thankyou-message" id="thankyou-message">
+    Thank you for contacting us! We'll get back to you soon.
   </div>
 </div>
 
-<footer>
-  &copy; 2025 Hasnain Pathan. All rights reserved.
-</footer>
-
 <script>
   const form = document.getElementById('contact-form');
-  const thankYouMessage = document.getElementById('thankyou-message');
+  const thankyouMessage = document.getElementById('thankyou-message');
 
   form.addEventListener('submit', async (e) => {
-    e.preventDefault(); // prevent default form submission
+    e.preventDefault();
 
     const formData = new FormData(form);
 
@@ -231,12 +118,14 @@
       const response = await fetch(form.action, {
         method: form.method,
         body: formData,
-        headers: { 'Accept': 'application/json' },
+        headers: {
+          'Accept': 'application/json'
+        },
       });
 
       if (response.ok) {
-        form.style.display = 'none';            // hide form
-        thankYouMessage.style.display = 'block'; // show thank you message
+        form.style.display = 'none';
+        thankyouMessage.style.display = 'block';
         form.reset();
       } else {
         alert('Oops! There was a problem submitting your form.');
