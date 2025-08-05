@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog | Hasnain Pathan</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f4f8;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(90deg, #00bcd4, #007a8a);
+      color: #fff;
+      padding: 25px 20px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 188, 212, 0.4);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+    }
+
+    nav {
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 15px 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #007a8a;
+      font-weight: 600;
+      font-size: 1.1rem;
+      position: relative;
+      padding: 6px 0;
+      transition: color 0.3s ease;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -4px;
+      width: 0;
+      height: 3px;
+      background: #00bcd4;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: #00bcd4;
+    }
+
+    nav a:hover::after,
+    nav a:focus::after {
+      width: 100%;
+    }
+
+    .hero {
+      background: #007a8a;
+      color: #fff;
+      font-size: 2.2rem;
+      font-weight: 700;
+      text-align: center;
+      padding: 80px 20px;
+      letter-spacing: 1.2px;
+      box-shadow: inset 0 0 100px rgba(0,0,0,0.1);
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h2 {
+      color: #007a8a;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      border-bottom: 3px solid #00bcd4;
+      padding-bottom: 6px;
+    }
+
+    p {
+      font-size: 1.05rem;
+      color: #444;
+      margin-bottom: 25px;
+    }
+
+    .blog-post {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    }
+
+    .blog-post h3 {
+      color: #007a8a;
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    .blog-post p {
+      color: #555;
+      font-size: 1rem;
+    }
+
+    footer {
+      background: #007a8a;
+      color: #fff;
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: auto;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .hero {
+        font-size: 1.7rem;
+        padding: 60px 10px;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Hasnain Pathan Business Website</h1>
+  </header>
+
+  <nav>
+    <a href="home.html" >Home</a>
+    <a href="service.html" >Services</a>
+    <a href="blog.html" >Blog</a>
+    <a href="news.html" >News</a>
+    <a href="about.html" >About Us</a>
+    <a href="contact.html" >Contact</a>
+  </nav>
+
+  <div class="hero">
+    Insights & Articles to Inspire Growth
+  </div>
+
+  <div class="container">
+    <section>
+      <h2>Latest Blog Posts</h2>
+
+      <div class="blog-post">
+        <h3>Why Digital Presence Matters in 2025</h3>
+        <p>Learn how building a strong online presence can make or break your business in today's digital world.</p>
+      </div>
+
+      <div class="blog-post">
+        <h3>Top 5 Web Design Trends</h3>
+        <p>Discover the latest web design trends that captivate users and improve conversion rates.</p>
+      </div>
+
+      <div class="blog-post">
+        <h3>Effective Marketing Strategies for Small Businesses</h3>
+        <p>Actionable tips for maximizing your marketing impact without breaking your budget.</p>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 Hasnain Pathan. All rights reserved.
+  </footer>
+
+</body>
+</html>
