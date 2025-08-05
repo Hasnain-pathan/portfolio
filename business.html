@@ -1,188 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hasnain Pathan - Portfolio</title>
 
-  <!-- FontAwesome for social icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  />
-
   <style>
     /* Reset */
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      margin: 0; padding: 0; box-sizing: border-box;
     }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: #0f2027;
       background: linear-gradient(135deg, #2c5364, #203a43, #0f2027);
       color: #e0e0e0;
-      line-height: 1.6;
       min-height: 100vh;
     }
 
-    /* Header styles */
     header {
+      background: #007a8a;
+      padding: 15px 30px;
       position: sticky;
       top: 0;
-      background: linear-gradient(90deg, #00bcd4, #007a8a);
-      color: white;
+      z-index: 1000;
       box-shadow: 0 4px 15px rgba(0, 188, 212, 0.4);
-      z-index: 999;
     }
-    .header-container {
+
+    .nav-container {
       max-width: 1140px;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 15px 20px;
     }
+
     .logo a {
+      color: #00bcd4;
       font-weight: 700;
       font-size: 1.8rem;
-      color: white;
       text-decoration: none;
+      letter-spacing: 1.5px;
     }
-    .logo span {
+    .logo a span {
       color: #26c6da;
     }
 
     nav {
       flex-grow: 1;
-      margin-left: 40px;
+      margin-left: 50px;
     }
+
     .nav-list {
       list-style: none;
       display: flex;
-      gap: 30px;
-      align-items: center;
-    }
-    .nav-list li {
-      position: relative;
-    }
-    .nav-list a {
-      color: white;
-      text-decoration: none;
+      gap: 35px;
       font-weight: 600;
       font-size: 1rem;
+    }
+
+    .nav-list li a {
+      color: #e0e0e0;
+      text-decoration: none;
       padding: 5px 0;
-      transition: color 0.3s ease;
-      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s ease, color 0.3s ease;
     }
-    .nav-list a:hover,
-    .nav-list a.active {
+
+    .nav-list li a:hover,
+    .nav-list li a.active {
       color: #a0e7f9;
+      border-bottom-color: #00bcd4;
     }
 
-    /* Dropdown */
-    .dropdown:hover .dropdown-menu {
-      display: block;
-    }
-    .dropdown-menu {
-      display: none;
-      position: absolute;
-      top: 35px;
-      left: 0;
-      background: #007a8a;
-      border-radius: 6px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      min-width: 180px;
-      z-index: 1000;
-    }
-    .dropdown-menu li {
-      padding: 10px 15px;
-    }
-    .dropdown-menu li a {
-      color: white;
-      font-weight: 500;
-      font-size: 0.9rem;
-      display: block;
-    }
-    .dropdown-menu li a:hover {
-      background: #00bcd4;
-      color: #004d56;
-      border-radius: 6px;
-    }
-
-    /* Header right */
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-    .header-right input[type="search"] {
-      padding: 6px 12px;
-      border-radius: 25px;
-      border: none;
-      font-size: 0.95rem;
-      outline: none;
-      width: 160px;
-      transition: width 0.3s ease;
-    }
-    .header-right input[type="search"]:focus {
-      width: 220px;
-    }
-    .social-icons a {
-      color: white;
-      font-size: 1.3rem;
-      margin-left: 12px;
-      transition: color 0.3s ease;
-    }
-    .social-icons a:hover {
-      color: #26c6da;
-    }
-
-    /* Hamburger */
+    /* Hamburger button */
     .hamburger {
       display: none;
       flex-direction: column;
-      border: none;
-      background: none;
       cursor: pointer;
-      padding: 8px;
+      gap: 5px;
     }
     .hamburger span {
       width: 25px;
       height: 3px;
-      background: white;
-      margin-bottom: 5px;
+      background: #00bcd4;
       border-radius: 3px;
+      transition: 0.3s ease;
     }
 
-    /* Responsive */
+    /* Mobile Menu (hidden by default) */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #007a8a;
+      flex-direction: column;
+      padding-top: 80px;
+      align-items: center;
+      gap: 30px;
+      font-size: 1.5rem;
+      z-index: 9999;
+    }
+    .mobile-menu a {
+      color: #e0e0e0;
+      text-decoration: none;
+    }
+    .mobile-menu a:hover {
+      color: #a0e7f9;
+    }
+
+    /* Show hamburger on small screens */
     @media (max-width: 900px) {
       nav {
-        display: none;
-        position: absolute;
-        background: #007a8a;
-        top: 60px;
-        left: 0;
-        right: 0;
-        flex-direction: column;
-        padding: 15px 20px;
-        border-radius: 0 0 10px 10px;
-      }
-      nav.active {
-        display: flex;
-      }
-      .nav-list {
-        flex-direction: column;
-        gap: 15px;
-      }
-      .dropdown-menu {
-        position: relative;
-        top: 0;
-        box-shadow: none;
-        background: #00bcd4;
-      }
-      .dropdown:hover .dropdown-menu {
         display: none;
       }
       .hamburger {
@@ -190,141 +120,59 @@
       }
     }
 
-    @media (max-width: 480px) {
-      .header-container {
-        flex-wrap: wrap;
-      }
-      .header-right {
-        width: 100%;
-        margin-top: 10px;
-        justify-content: space-between;
-      }
-      .header-right input[type="search"] {
-        width: 100%;
-        max-width: 300px;
-      }
-    }
-
-    /* Main container */
-    .container {
-      max-width: 900px;
-      background: rgba(0, 0, 0, 0.7);
-      margin: 40px auto;
-      padding: 30px 40px;
-      border-radius: 15px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
-      color: #e0e0e0;
-      animation: fadeInUp 1s ease forwards;
-    }
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    h1, h2 {
-      color: #00bcd4;
-      margin-bottom: 20px;
-    }
-    p {
-      margin-bottom: 15px;
-      line-height: 1.5;
-    }
-    a {
-      color: #81d4fa;
-      text-decoration: none;
-    }
-    a:hover {
-      color: #4fc3f7;
-    }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="header-container">
+  <div class="nav-container">
     <div class="logo">
       <a href="index.html">Hasnain <span>Pathan</span></a>
     </div>
 
     <nav>
       <ul class="nav-list">
-        <li><a href="index.html" class="nav-link active">Home</a></li>
-
-        <li class="dropdown">
-          <a href="business.html" class="nav-link">Business &#x25BC;</a>
-          <ul class="dropdown-menu">
-            <li><a href="business.html">Overview</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Case Studies</a></li>
-          </ul>
-        </li>
-
-        <li><a href="java-game.html" class="nav-link">Java Game</a></li>
-        <li><a href="about.html" class="nav-link">About</a></li>
-        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="business.html">Business</a></li>
+        <li><a href="java-game.html">Java Game</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
 
-    <div class="header-right">
-      <input type="search" placeholder="Search..." aria-label="Search" />
-      <div class="social-icons">
-        <a href="https://linkedin.com/in/hasnain-khan-170398377" target="_blank" aria-label="LinkedIn"
-          ><i class="fab fa-linkedin-in"></i
-        ></a>
-        <a
-          href="https://instagram.com/hasnain_pathan__01"
-          target="_blank"
-          aria-label="Instagram"
-          ><i class="fab fa-instagram"></i
-        ></a>
-        <a href="mailto:prof.hasnen@gmail.com" aria-label="Email"
-          ><i class="fas fa-envelope"></i
-        ></a>
-      </div>
+    <div class="hamburger" aria-label="Toggle menu" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
-
-    <button class="hamburger" aria-label="Toggle menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
   </div>
 </header>
 
-<div class="container">
-  <h1>Welcome to My Portfolio</h1>
-  <p>
-    Hello! I'm Hasnain Pathan, a passionate web developer and designer. I build
-    beautiful, responsive, and user-friendly websites using modern web
-    technologies.
-  </p>
-
-  <h2>Featured Projects</h2>
-  <ul>
-    <li><a href="business.html" target="_blank">Business Website</a></li>
-    <li><a href="java-game.html" target="_blank">JavaScript Game</a></li>
-  </ul>
-
-  <h2>Contact Me</h2>
-  <p>
-    Feel free to reach out via email at
-    <a href="mailto:prof.hasnen@gmail.com">prof.hasnen@gmail.com</a> or connect
-    on social media.
-  </p>
+<div class="mobile-menu" id="mobileMenu" tabindex="-1" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
+  <a href="index.html" class="active">Home</a>
+  <a href="business.html">Business</a>
+  <a href="java-game.html">Java Game</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
 </div>
 
 <script>
-  // Hamburger toggle
   const hamburger = document.querySelector('.hamburger');
-  const nav = document.querySelector('nav');
+  const mobileMenu = document.getElementById('mobileMenu');
 
   hamburger.addEventListener('click', () => {
-    nav.classList.toggle('active');
+    if(mobileMenu.style.display === "flex") {
+      mobileMenu.style.display = "none";
+    } else {
+      mobileMenu.style.display = "flex";
+    }
+  });
+
+  // Optional: close menu when clicking outside or on a menu link
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.style.display = "none";
+    });
   });
 </script>
 
