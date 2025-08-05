@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us - Hasnain Pathan Business Website</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f4f8;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(90deg, #00bcd4, #007a8a);
+      color: #fff;
+      padding: 25px 20px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 188, 212, 0.4);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+    }
+
+    nav {
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 15px 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #007a8a;
+      font-weight: 600;
+      font-size: 1.1rem;
+      position: relative;
+      padding: 6px 0;
+      transition: color 0.3s ease;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -4px;
+      width: 0;
+      height: 3px;
+      background: #00bcd4;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: #00bcd4;
+    }
+
+    nav a:hover::after,
+    nav a:focus::after {
+      width: 100%;
+    }
+
+    .hero {
+      background: #007a8a;
+      color: #fff;
+      font-size: 2.2rem;
+      font-weight: 700;
+      text-align: center;
+      padding: 80px 20px;
+      letter-spacing: 1.2px;
+      box-shadow: inset 0 0 100px rgba(0,0,0,0.1);
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h2 {
+      color: #007a8a;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      border-bottom: 3px solid #00bcd4;
+      padding-bottom: 6px;
+    }
+
+    p {
+      font-size: 1.05rem;
+      color: #444;
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+
+    footer {
+      background: #007a8a;
+      color: #fff;
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: auto;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .hero {
+        font-size: 1.7rem;
+        padding: 60px 10px;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Hasnain Pathan Business Website</h1>
+  </header>
+
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="service.html">Services</a>
+    <a href="blog.html">Blog</a>
+    <a href="news.html">News</a>
+    <a href="about.html" class="active">About Us</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="hero">
+    About Us
+  </div>
+
+  <div class="container">
+    <section>
+      <h2>Our Story</h2>
+      <p>Hasnain Pathan Solutions was founded with a mission to empower businesses by providing innovative digital solutions and expert consulting services.</p>
+    </section>
+
+    <section>
+      <h2>Our Mission</h2>
+      <p>We strive to deliver high-quality services that help our clients grow their business, improve their online presence, and succeed in a competitive marketplace.</p>
+    </section>
+
+    <section>
+      <h2>Our Team</h2>
+      <p>Our diverse team of professionals brings years of experience in business consulting, web development, and digital marketing to create tailored strategies for our clients.</p>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 Hasnain Pathan. All rights reserved.
+  </footer>
+
+</body>
+</html>
