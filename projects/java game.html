@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simple JavaScript Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #222;
+      color: #eee;
+      padding: 50px;
+    }
+    button {
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      margin-top: 20px;
+      cursor: pointer;
+      background: #00bcd4;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #0288d1;
+    }
+    #score {
+      font-size: 2rem;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Click the Button Game</h1>
+  <p>Click the button as many times as you can!</p>
+  <button id="clickBtn">Click me!</button>
+  <div id="score">Score: 0</div>
+
+  <script>
+    let score = 0;
+    const btn = document.getElementById('clickBtn');
+    const scoreDisplay = document.getElementById('score');
+
+    btn.addEventListener('click', () => {
+      score++;
+      scoreDisplay.textContent = 'Score: ' + score;
+    });
+  </script>
+</body>
+</html>
