@@ -1,196 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Business Website - Hasnain Pathan</title>
-<style>
-  /* Reset */
-  * {
-    margin: 0; padding: 0; box-sizing: border-box;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hasnain Pathan - Portfolio</title>
 
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f0f4f8;
-    color: #333;
-    line-height: 1.6;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
+  <!-- FontAwesome for social icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
 
-  header {
-    background: linear-gradient(90deg, #00bcd4, #007a8a);
-    color: white;
-    padding: 25px 20px;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 188, 212, 0.4);
-  }
-  header h1 {
-    font-size: 2.8rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-  }
-
-  nav {
-    background: #fff;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    padding: 15px 20px;
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-  }
-  nav a {
-    color: #007a8a;
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 1.1rem;
-    position: relative;
-    padding: 5px 0;
-    transition: color 0.3s ease;
-  }
-  nav a::after {
-    content: '';
-    position: absolute;
-    left: 0; bottom: -3px;
-    width: 0;
-    height: 3px;
-    background: #00bcd4;
-    transition: width 0.3s ease;
-  }
-  nav a:hover,
-  nav a:focus {
-    color: #00bcd4;
-  }
-  nav a:hover::after,
-  nav a:focus::after {
-    width: 100%;
-  }
-
-  .hero {
-    background: url('https://source.unsplash.com/1600x600/?corporate,business') no-repeat center/cover;
-    height: 380px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-shadow: 0 0 20px rgba(0,0,0,0.7);
-    font-size: 2.8rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    margin-bottom: 40px;
-  }
-
-  .container {
-    max-width: 960px;
-    margin: 0 auto 50px;
-    padding: 0 20px;
-  }
-
-  h2 {
-    color: #007a8a;
-    font-size: 2rem;
-    margin-bottom: 20px;
-    border-bottom: 3px solid #00bcd4;
-    padding-bottom: 8px;
-  }
-
-  p {
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 25px;
-  }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-    gap: 30px;
-  }
-
-  .service-card {
-    background: white;
-    border-radius: 16px;
-    padding: 30px 25px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0,188,212,0.3);
-  }
-
-  .service-icon {
-    font-size: 3.2rem;
-    color: #00bcd4;
-    margin-bottom: 18px;
-  }
-
-  .service-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #007a8a;
-    margin-bottom: 12px;
-  }
-
-  .service-desc {
-    flex-grow: 1;
-    font-size: 1rem;
-    color: #444;
-  }
-
-  .btn-primary {
-    background: linear-gradient(90deg, #00bcd4, #007a8a);
-    color: white;
-    border: none;
-    padding: 12px 28px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border-radius: 25px;
-    cursor: pointer;
-    align-self: flex-start;
-    margin-top: 25px;
-    transition: background 0.3s ease;
-    text-decoration: none;
-    text-align: center;
-    display: inline-block;
-  }
-  .btn-primary:hover {
-    background: linear-gradient(90deg, #007a8a, #00bcd4);
-  }
-
-  footer {
-    background: #007a8a;
-    color: white;
-    text-align: center;
-    padding: 20px 10px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    margin-top: auto;
-  }
-
-  /* Responsive */
-  @media (max-width: 480px) {
-    header h1 {
-      font-size: 2rem;
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    .hero {
-      font-size: 2rem;
-      height: 260px;
-      padding: 0 10px;
-      text-align: center;
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0f2027;
+      background: linear-gradient(135deg, #2c5364, #203a43, #0f2027);
+      color: #e0e0e0;
+      line-height: 1.6;
+      min-height: 100vh;
     }
+
+    /* Header styles */
+    header {
+      position: sticky;
+      top: 0;
+      background: linear-gradient(90deg, #00bcd4, #007a8a);
+      color: white;
+      box-shadow: 0 4px 15px rgba(0, 188, 212, 0.4);
+      z-index: 999;
+    }
+    .header-container {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 20px;
+    }
+    .logo a {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: white;
+      text-decoration: none;
+    }
+    .logo span {
+      color: #26c6da;
+    }
+
     nav {
-      flex-direction: column;
-      gap: 15px;
+      flex-grow: 1;
+      margin-left: 40px;
     }
-  }
-</style>
-<!-- Font Awesome CDN for icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    .nav-list {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+    .nav-list li {
+      position: relative;
+    }
+    .nav-list a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 5px 0;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+    .nav-list a:hover,
+    .nav-list a.active {
+      color: #a0e7f9;
+    }
+
+    /* Dropdown */
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 35px;
+      left: 0;
+      background: #007a8a;
+      border-radius: 6px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      min-width: 180px;
+      z-index: 1000;
+    }
+    .dropdown-menu li {
+      padding: 10px 15px;
+    }
+    .dropdown-menu li a {
+      color: white;
+      font-weight: 500;
+      font-size: 0.9rem;
+      display: block;
+    }
+    .dropdown-menu li a:hover {
+      background: #00bcd4;
+      color: #004d56;
+      border-radius: 6px;
+    }
+
+    /* Header right */
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .header-right input[type="search"] {
+      padding: 6px 12px;
+      border-radius: 25px;
+      border: none;
+      font-size: 0.95rem;
+      outline: none;
+      width: 160px;
+      transition: width 0.3s ease;
+    }
+    .header-right input[type="search"]:focus {
+      width: 220px;
+    }
+    .social-icons a {
+      color: white;
+      font-size: 1.3rem;
+      margin-left: 12px;
+      transition: color 0.3s ease;
+    }
+    .social-icons a:hover {
+      color: #26c6da;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      border: none;
+      background: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: white;
+      margin-bottom: 5px;
+      border-radius: 3px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      nav {
+        display: none;
+        position: absolute;
+        background: #007a8a;
+        top: 60px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        padding: 15px 20px;
+        border-radius: 0 0 10px 10px;
+      }
+      nav.active {
+        display: flex;
+      }
+      .nav-list {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .dropdown-menu {
+        position: relative;
+        top: 0;
+        box-shadow: none;
+        background: #00bcd4;
+      }
+      .dropdown:hover .dropdown-menu {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-container {
+        flex-wrap: wrap;
+      }
+      .header-right {
+        width: 100%;
+        margin-top: 10px;
+        justify-content: space-between;
+      }
+      .header-right input[type="search"] {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+
+    /* Main container */
+    .container {
+      max-width: 900px;
+      background: rgba(0, 0, 0, 0.7);
+      margin: 40px auto;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+      color: #e0e0e0;
+      animation: fadeInUp 1s ease forwards;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    h1, h2 {
+      color: #00bcd4;
+      margin-bottom: 20px;
+    }
+    p {
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+    a {
+      color: #81d4fa;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #4fc3f7;
+    }
+  </style>
 </head>
 <body>
 
@@ -202,7 +253,7 @@
 
     <nav>
       <ul class="nav-list">
-        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="index.html" class="nav-link active">Home</a></li>
 
         <li class="dropdown">
           <a href="business.html" class="nav-link">Business &#x25BC;</a>
@@ -214,7 +265,6 @@
         </li>
 
         <li><a href="java-game.html" class="nav-link">Java Game</a></li>
-
         <li><a href="about.html" class="nav-link">About</a></li>
         <li><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
@@ -223,9 +273,18 @@
     <div class="header-right">
       <input type="search" placeholder="Search..." aria-label="Search" />
       <div class="social-icons">
-        <a href="https://linkedin.com/in/hasnain-khan-170398377" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://instagram.com/hasnain_pathan__01" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="mailto:prof.hasnen@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://linkedin.com/in/hasnain-khan-170398377" target="_blank" aria-label="LinkedIn"
+          ><i class="fab fa-linkedin-in"></i
+        ></a>
+        <a
+          href="https://instagram.com/hasnain_pathan__01"
+          target="_blank"
+          aria-label="Instagram"
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a href="mailto:prof.hasnen@gmail.com" aria-label="Email"
+          ><i class="fas fa-envelope"></i
+        ></a>
       </div>
     </div>
 
@@ -237,46 +296,37 @@
   </div>
 </header>
 
-
-<div class="hero">
-  Empowering Your Business Success
-</div>
-
 <div class="container">
-  <section>
-    <h2>About Us</h2>
-    <p>At Hasnain Pathan Solutions, we combine innovation and expertise to deliver customized business strategies and digital solutions that elevate your brand and drive growth.</p>
-  </section>
+  <h1>Welcome to My Portfolio</h1>
+  <p>
+    Hello! I'm Hasnain Pathan, a passionate web developer and designer. I build
+    beautiful, responsive, and user-friendly websites using modern web
+    technologies.
+  </p>
 
-  <section>
-    <h2>Our Services</h2>
-    <div class="services-grid">
-      <div class="service-card">
-        <i class="fas fa-lightbulb service-icon"></i>
-        <h3 class="service-title">Business Consulting</h3>
-        <p class="service-desc">Strategic consulting tailored to your unique challenges, enabling sustainable growth and competitive advantage.</p>
-        <a href="#" class="btn-primary">Learn More</a>
-      </div>
-      <div class="service-card">
-        <i class="fas fa-code service-icon"></i>
-        <h3 class="service-title">Web Development</h3>
-        <p class="service-desc">Crafting fast, responsive, and engaging websites that reflect your brand and enhance user experience.</p>
-        <a href="#" class="btn-primary">Learn More</a>
-      </div>
-      <div class="service-card">
-        <i class="fas fa-bullhorn service-icon"></i>
-        <h3 class="service-title">Digital Marketing</h3>
-        <p class="service-desc">Data-driven marketing strategies to expand your reach, boost engagement, and increase conversions.</p>
-        <a href="#" class="btn-primary">Learn More</a>
-      </div>
-    </div>
-  </section>
+  <h2>Featured Projects</h2>
+  <ul>
+    <li><a href="business.html" target="_blank">Business Website</a></li>
+    <li><a href="java-game.html" target="_blank">JavaScript Game</a></li>
+  </ul>
+
+  <h2>Contact Me</h2>
+  <p>
+    Feel free to reach out via email at
+    <a href="mailto:prof.hasnen@gmail.com">prof.hasnen@gmail.com</a> or connect
+    on social media.
+  </p>
 </div>
 
-<footer>
-  &copy; 2025 Hasnain Pathan. All rights reserved.
-</footer>
+<script>
+  // Hamburger toggle
+  const hamburger = document.querySelector('.hamburger');
+  const nav = document.querySelector('nav');
+
+  hamburger.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
+</script>
 
 </body>
 </html>
-
