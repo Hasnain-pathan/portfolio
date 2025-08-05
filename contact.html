@@ -1,313 +1,229 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact Us - Hasnain Pathan Business Website</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  <style>
-    /* Reset */
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-    }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: #eee;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    header {
-      background: linear-gradient(90deg, #00bcd4, #007a8a);
-      color: #fff;
-      padding: 25px 20px;
-      text-align: center;
-      box-shadow: 0 4px 15px rgba(0, 188, 212, 0.6);
-      animation: slideDownFade 1s ease forwards;
-    }
-    @keyframes slideDownFade {
-      0% {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact - Hasnain Pathan Business Website</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<style>
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f4f8;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  header {
+    background: linear-gradient(90deg, #00bcd4, #007a8a);
+    color: white;
+    padding: 25px 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,188,212,0.4);
+  }
+  header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+  }
+  nav {
+    background: white;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 15px 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  nav a {
+    text-decoration: none;
+    color: #007a8a;
+    font-weight: 600;
+    font-size: 1.1rem;
+    position: relative;
+    padding: 6px 0;
+    transition: color 0.3s ease;
+  }
+  nav a::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -4px;
+    width: 0;
+    height: 3px;
+    background: #00bcd4;
+    transition: width 0.3s ease;
+  }
+  nav a:hover, nav a:focus {
+    color: #00bcd4;
+  }
+  nav a:hover::after, nav a:focus::after {
+    width: 100%;
+  }
+  .hero {
+    background: #007a8a;
+    color: white;
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 80px 20px;
+    letter-spacing: 1.2px;
+    box-shadow: inset 0 0 100px rgba(0,0,0,0.1);
+  }
+  .container {
+    max-width: 600px;
+    margin: 40px auto 80px;
+    padding: 0 20px;
+  }
+  h2 {
+    color: #007a8a;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #00bcd4;
+    padding-bottom: 6px;
+    animation: fadeInUp 1s ease forwards;
+  }
+  @keyframes fadeInUp {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+  form {
+    background: white;
+    padding: 30px 25px;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    animation: fadeInUp 1.2s ease forwards;
+  }
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #007a8a;
+  }
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 2px solid #00bcd4;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  textarea:focus {
+    outline: none;
+    border-color: #007a8a;
+  }
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  button {
+    background: linear-gradient(90deg, #00bcd4, #007a8a);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  button:hover {
+    background: linear-gradient(90deg, #007a8a, #00bcd4);
+  }
+  #thankyou-message {
+    display: none;
+    margin-top: 30px;
+    font-size: 1.2rem;
+    color: #007a8a;
+    text-align: center;
+    font-weight: 600;
+    animation: fadeInUp 1s ease forwards;
+  }
+  footer {
+    background: #007a8a;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    margin-top: auto;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  @media (max-width: 480px) {
     header h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-shadow: 0 0 12px rgba(0,188,212,0.8);
+      font-size: 2rem;
     }
-
-    nav {
-      background: #fff;
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      padding: 15px 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      animation: slideDownFade 1s ease forwards;
-      animation-delay: 0.3s;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #007a8a;
-      font-weight: 600;
-      font-size: 1.1rem;
-      position: relative;
-      padding: 6px 0;
-      transition: color 0.3s ease;
-    }
-
-    nav a::after {
-      content: '';
-      position: absolute;
-      left: 0; bottom: -4px;
-      width: 0;
-      height: 3px;
-      background: #00bcd4;
-      transition: width 0.3s ease;
-    }
-
-    nav a:hover,
-    nav a:focus,
-    nav a.active {
-      color: #00bcd4;
-    }
-
-    nav a:hover::after,
-    nav a:focus::after,
-    nav a.active::after {
-      width: 100%;
-    }
-
     .hero {
-      background: #007a8a;
-      color: #fff;
-      font-size: 2.2rem;
-      font-weight: 700;
-      text-align: center;
-      padding: 80px 20px;
-      letter-spacing: 1.2px;
-      box-shadow: inset 0 0 100px rgba(0,0,0,0.1);
-      margin-bottom: 40px;
-      animation: fadeIn 1s ease forwards;
-      animation-delay: 0.6s;
-      opacity: 0;
+      font-size: 1.7rem;
+      padding: 60px 10px;
     }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
+    nav {
+      flex-direction: column;
+      gap: 12px;
     }
-
-    .container {
-      max-width: 600px;
-      margin: 0 auto 60px;
-      padding: 0 20px;
-      flex-grow: 1;
-      animation: slideUpFade 1s ease forwards;
-      animation-delay: 0.9s;
-      opacity: 0;
-    }
-
-    @keyframes slideUpFade {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-    }
-
-    h2 {
-      color: #00bcd4;
-      font-size: 1.8rem;
-      margin-bottom: 30px;
-      border-bottom: 3px solid #00bcd4;
-      padding-bottom: 6px;
-      text-align: center;
-      text-shadow: 0 0 6px #00bcd4;
-    }
-
-    form {
-      background: #203a43;
-      padding: 30px 35px;
-      border-radius: 15px;
-      box-shadow: 0 6px 30px rgba(0,0,0,0.6);
-      color: #eee;
-    }
-
-    .form-group {
-      position: relative;
-      margin-bottom: 28px;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 15px 12px 15px 12px;
-      font-size: 1rem;
-      font-family: inherit;
-      border-radius: 8px;
-      border: 2px solid #007a8a;
-      background: transparent;
-      color: #eee;
-      outline: none;
-      transition: border-color 0.3s ease;
-      resize: vertical;
-    }
-    input:focus, textarea:focus {
-      border-color: #00bcd4;
-    }
-
-    label {
-      position: absolute;
-      top: 50%;
-      left: 15px;
-      color: #a0e7f9;
-      font-weight: 600;
-      pointer-events: none;
-      transform: translateY(-50%);
-      transition: all 0.3s ease;
-      background: #203a43;
-      padding: 0 5px;
-      border-radius: 5px;
-    }
-
-    input:focus + label,
-    input:not(:placeholder-shown) + label,
-    textarea:focus + label,
-    textarea:not(:placeholder-shown) + label {
-      top: -10px;
-      font-size: 0.8rem;
-      color: #00bcd4;
-    }
-
-    textarea {
-      min-height: 100px;
-    }
-
-    button {
-      width: 100%;
-      padding: 14px 0;
-      font-size: 1.2rem;
-      font-weight: 700;
-      background: linear-gradient(90deg, #00bcd4, #007a8a);
-      border: none;
-      border-radius: 30px;
-      color: #fff;
-      cursor: pointer;
-      box-shadow: 0 0 15px #00bcd4;
-      transition: background 0.3s ease, box-shadow 0.3s ease;
-    }
-    button:hover {
-      background: linear-gradient(90deg, #007a8a, #00bcd4);
-      box-shadow: 0 0 25px #00bcd4;
-    }
-
-    footer {
-      background: #007a8a;
-      color: #fff;
-      text-align: center;
-      padding: 20px 10px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      margin-top: auto;
-      box-shadow: 0 -4px 15px rgba(0, 188, 212, 0.6);
-    }
-
-    @media (max-width: 480px) {
-      header h1 {
-        font-size: 2rem;
-      }
-
-      .hero {
-        font-size: 1.8rem;
-        padding: 60px 10px;
-      }
-
-      nav {
-        flex-direction: column;
-        gap: 12px;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
 
-  <header>
-    <h1>Hasnain Pathan Business Website</h1>
-  </header>
+<header>
+  <h1>Hasnain Pathan Business Website</h1>
+</header>
 
-  <nav>
-    <a href="home.html">Home</a>
-    <a href="service.html">Services</a>
-    <a href="blog.html">Blog</a>
-    <a href="news.html">News</a>
-    <a href="about.html">About Us</a>
-    <a href="contact.html" class="active">Contact</a>
-  </nav>
+<nav>
+  <a href="home.html">Home</a>
+  <a href="service.html">Services</a>
+  <a href="blog.html">Blog</a>
+  <a href="news.html">News</a>
+  <a href="about.html">About Us</a>
+  <a href="contact.html" class="active">Contact</a>
+</nav>
 
-  <div class="hero">
-    Contact Us
-  </div>
-
-  <div class="container">
-    <h2>Get In Touch</h2>
-    <form id="contact-form" action="https://formspree.io/f/xgvznlnk" method="POST">
-  <div class="form-group">
-    <input type="text" id="name" name="name" placeholder=" " required />
-    <label for="name">Full Name</label>
-  </div>
-
-  <div class="form-group">
-    <input type="email" id="email" name="_replyto" placeholder=" " required />
-    <label for="email">Email Address</label>
-  </div>
-
-  <div class="form-group">
-    <input type="tel" id="phone" name="phone" placeholder=" " />
-    <label for="phone">Phone Number</label>
-  </div>
-
-  <div class="form-group">
-    <input type="text" id="subject" name="subject" placeholder=" " required />
-    <label for="subject">Subject</label>
-  </div>
-
-  <div class="form-group">
-    <textarea id="message" name="message" placeholder=" " required></textarea>
-    <label for="message">Message</label>
-  </div>
-
-  <button type="submit">Send Message</button>
-</form>
-
-<div id="thankyou-message" style="display:none; margin-top: 30px; color: #00bcd4; font-size: 1.2rem; text-align: center;">
-  <i class="fas fa-check-circle" style="font-size: 3rem; margin-bottom: 15px;"></i>
-  <p>Thank you! Your message has been sent successfully. We will get back to you soon.</p>
+<div class="hero">
+  Get In Touch With Us
 </div>
 
+<div class="container">
+  <h2>Contact Us</h2>
+  <form id="contact-form" action="https://formspree.io/f/xgvznlnk" method="POST">
+    <label for="name">Full Name *</label>
+    <input type="text" id="name" name="name" required placeholder="Your full name" />
+    
+    <label for="email">Email Address *</label>
+    <input type="email" id="email" name="_replyto" required placeholder="Your email address" />
+    
+    <label for="phone">Phone Number</label>
+    <input type="text" id="phone" name="phone" placeholder="Your phone number" />
+    
+    <label for="subject">Subject *</label>
+    <input type="text" id="subject" name="subject" required placeholder="Subject of your message" />
+    
+    <label for="message">Message *</label>
+    <textarea id="message" name="message" required placeholder="Write your message here..."></textarea>
+    
+    <button type="submit">Send Message</button>
+  </form>
+  
+  <div id="thankyou-message">
+    Thank you! Your message has been sent successfully. We will get back to you soon.
   </div>
+</div>
 
-  <footer>
-    &copy; 2025 Hasnain Pathan. All rights reserved.
-  </footer>
+<footer>
+  &copy; 2025 Hasnain Pathan. All rights reserved.
+</footer>
+
 <script>
   const form = document.getElementById('contact-form');
   const thankYouMessage = document.getElementById('thankyou-message');
 
-  form.addEventListener('submit', async function(event) {
-    event.preventDefault();
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault(); // prevent default form submission
 
     const formData = new FormData(form);
 
@@ -315,14 +231,12 @@
       const response = await fetch(form.action, {
         method: form.method,
         body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
+        headers: { 'Accept': 'application/json' },
       });
 
       if (response.ok) {
-        form.style.display = 'none'; // Hide form
-        thankYouMessage.style.display = 'block'; // Show thank you
+        form.style.display = 'none';            // hide form
+        thankYouMessage.style.display = 'block'; // show thank you message
         form.reset();
       } else {
         alert('Oops! There was a problem submitting your form.');
