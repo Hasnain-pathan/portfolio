@@ -207,9 +207,16 @@
     <label for="phone">Phone Number</label>
     <input type="tel" id="phone" name="phone" placeholder="Your phone number" />
 
-    <label for="subject">Subject *</label>
-    <input type="text" id="subject" name="subject" required placeholder="Subject" />
-
+    <label for="subject">Subject:</label>
+  <select id="subject" name="subject" required>
+    <option value="">-- Select a Subject --</option>
+    <option value="General Inquiry">General Inquiry</option>
+    <option value="Support">Support</option>
+    <option value="Feedback">Feedback</option>
+    <option value="Business Proposal">Business Proposal</option>
+    <option value="Other">Other</option>
+  </select>
+    
     <label for="message">Message *</label>
     <textarea id="message" name="message" required placeholder="Write your message here..."></textarea>
 
