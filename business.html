@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hasnain Pathan - Portfolio</title>
+  <title>Hasnain Pathan - Business</title>
 
   <style>
     /* Reset */
@@ -17,6 +17,7 @@
       background: linear-gradient(135deg, #2c5364, #203a43, #0f2027);
       color: #e0e0e0;
       min-height: 100vh;
+      line-height: 1.6;
     }
 
     header {
@@ -120,6 +121,111 @@
       }
     }
 
+    /* Main container for content */
+    .container {
+      max-width: 900px;
+      background: rgba(0, 0, 0, 0.7);
+      margin: 30px auto 60px;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+      animation: fadeInUp 1s ease forwards;
+      color: #e0e0e0;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1, h2 {
+      color: #00bcd4;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #00bcd4;
+      padding-bottom: 8px;
+    }
+
+    p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      color: #c1d9e8;
+    }
+
+    .services-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+
+    .service-item {
+      background: #134e5e;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0, 188, 212, 0.3);
+      transition: transform 0.3s ease;
+      cursor: default;
+    }
+
+    .service-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 30px rgba(0, 188, 212, 0.6);
+    }
+
+    .service-item img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .service-item h3 {
+      color: #81d4fa;
+      margin-bottom: 10px;
+    }
+
+    ul.projects-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul.projects-list li {
+      margin-bottom: 15px;
+      padding-left: 12px;
+      position: relative;
+    }
+
+    ul.projects-list li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #00bcd4;
+      font-weight: bold;
+    }
+
+    a {
+      color: #81d4fa;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #4fc3f7;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 40px;
+      margin-bottom: 30px;
+    }
   </style>
 </head>
 <body>
@@ -132,8 +238,9 @@
 
     <nav>
       <ul class="nav-list">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="business.html">Business</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="business.html" class="active">Business</a></li>
+        <li><a href="services.html">Services</a></li>
         <li><a href="java-game.html">Java Game</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -149,12 +256,64 @@
 </header>
 
 <div class="mobile-menu" id="mobileMenu" tabindex="-1" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
-  <a href="index.html" class="active">Home</a>
-  <a href="business.html">Business</a>
+  <a href="index.html">Home</a>
+  <a href="business.html" class="active">Business</a>
+  <a href="services.html">Services</a>
   <a href="java-game.html">Java Game</a>
   <a href="about.html">About</a>
   <a href="contact.html">Contact</a>
 </div>
+
+<div class="container">
+
+  <h1>Our Business Services</h1>
+
+  <div class="services-list">
+    <div class="service-item">
+      <img src="https://source.unsplash.com/400x200/?consulting,business" alt="Consulting" />
+      <h3>Business Consulting</h3>
+      <p>Expert advice to help you grow your business efficiently and sustainably.</p>
+    </div>
+
+    <div class="service-item">
+      <img src="https://source.unsplash.com/400x200/?marketing,digital" alt="Digital Marketing" />
+      <h3>Digital Marketing</h3>
+      <p>Strategic campaigns that increase your brand's online presence and customer engagement.</p>
+    </div>
+
+    <div class="service-item">
+      <img src="https://source.unsplash.com/400x200/?finance,analysis" alt="Financial Analysis" />
+      <h3>Financial Analysis</h3>
+      <p>Data-driven financial insights to optimize your investments and resources.</p>
+    </div>
+
+    <div class="service-item">
+      <img src="https://source.unsplash.com/400x200/?branding,design" alt="Branding & Design" />
+      <h3>Branding & Design</h3>
+      <p>Creative designs that build a strong and memorable brand identity.</p>
+    </div>
+  </div>
+
+  <section>
+    <h2>Projects</h2>
+    <ul class="projects-list">
+      <li><a href="business.html" target="_blank">Business Website</a></li>
+      <li><a href="java-game.html" target="_blank">JavaScript Game</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:prof.hasnen@gmail.com">prof.hasnen@gmail.com</a></p>
+    <p>Instagram: <a href="https://www.instagram.com/hasnain_pathan__01?igsh=eGFnZWk5MjBiczRk" target="_blank">Hasnain_pathan__01</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/hasnain-khan-170398377/" target="_blank">linkedin.com/in/hasnain</a></p>
+  </section>
+
+</div>
+
+<footer>
+  &copy; 2025 Hasnain Pathan. All rights reserved.
+</footer>
 
 <script>
   const hamburger = document.querySelector('.hamburger');
@@ -168,7 +327,6 @@
     }
   });
 
-  // Optional: close menu when clicking outside or on a menu link
   mobileMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       mobileMenu.style.display = "none";
