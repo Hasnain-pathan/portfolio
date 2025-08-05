@@ -2,52 +2,125 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Simple JavaScript Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Catch the Box Game</title>
   <style>
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
       text-align: center;
-      background: #222;
-      color: #eee;
-      padding: 50px;
+      background: #f0f0f0;
     }
-    button {
-      font-size: 1.2rem;
-      padding: 10px 20px;
+
+    h1 {
       margin-top: 20px;
+      color: #333;
+    }
+
+    #gameArea {
+      position: relative;
+      margin: 20px auto;
+      width: 90%;
+      max-width: 500px;
+      height: 400px;
+      background: white;
+      border: 2px solid #333;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    #box {
+      width: 50px;
+      height: 50px;
+      background-color: crimson;
+      position: absolute;
+      border-radius: 5px;
       cursor: pointer;
-      background: #00bcd4;
+      transition: all 0.2s ease;
+    }
+
+    #score, #timer {
+      font-size: 20px;
+      margin: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      font-size: 16px;
+      background: #333;
+      color: white;
       border: none;
       border-radius: 5px;
-      color: white;
-      transition: background 0.3s ease;
+      cursor: pointer;
     }
+
     button:hover {
-      background: #0288d1;
-    }
-    #score {
-      font-size: 2rem;
-      margin-top: 20px;
+      background: #555;
     }
   </style>
 </head>
 <body>
-  <h1>Click the Button Game</h1>
-  <p>Click the button as many times as you can!</p>
-  <button id="clickBtn">Click me!</button>
+
+  <h1>🎯 Catch the Box!</h1>
   <div id="score">Score: 0</div>
+  <div id="timer">Time Left: 30</div>
+  <div id="gameArea">
+    <div id="box" style="display: none;"></div>
+  </div>
+  <button onclick="startGame()">Start Game</button>
 
   <script>
     let score = 0;
-    const btn = document.getElementById('clickBtn');
-    const scoreDisplay = document.getElementById('score');
+    let timeLeft = 30;
+    let gameInterval, boxTimeout;
+    const box = document.getElementById("box");
+    const gameArea = document.getElementById("gameArea");
+    const scoreDisplay = document.getElementById("score");
+    const timerDisplay = document.getElementById("timer");
 
-    btn.addEventListener('click', () => {
+    function randomPosition() {
+      const maxX = gameArea.clientWidth - 50;
+      const maxY = gameArea.clientHeight - 50;
+      const x = Math.floor(Math.random() * maxX);
+      const y = Math.floor(Math.random() * maxY);
+      box.style.left = `${x}px`;
+      box.style.top = `${y}px`;
+    }
+
+    function showBox() {
+      randomPosition();
+      box.style.display = "block";
+      boxTimeout = setTimeout(() => {
+        box.style.display = "none";
+      }, 1000);
+    }
+
+    box.addEventListener("click", () => {
       score++;
-      scoreDisplay.textContent = 'Score: ' + score;
+      scoreDisplay.innerText = `Score: ${score}`;
+      box.style.display = "none";
+      clearTimeout(boxTimeout);
     });
+
+    function startGame() {
+      score = 0;
+      timeLeft = 30;
+      scoreDisplay.innerText = `Score: ${score}`;
+      timerDisplay.innerText = `Time Left: ${timeLeft}`;
+      box.style.display = "none";
+
+      gameInterval = setInterval(() => {
+        timeLeft--;
+        timerDisplay.innerText = `Time Left: ${timeLeft}`;
+        showBox();
+        if (timeLeft <= 0) {
+          clearInterval(gameInterval);
+          box.style.display = "none";
+          alert(`Time's up! 🎉 Your Score: ${score}`);
+        }
+      }, 1000);
+    }
   </script>
 </body>
-
 </html>
