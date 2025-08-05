@@ -1,126 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Catch the Box Game</title>
+  <meta charset="UTF-8">
+  <title>Math Ninja: Fast Fingers</title>
   <style>
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
+      background: #1a1a1a;
+      color: #00ffcc;
       text-align: center;
-      background: #f0f0f0;
+      padding: 50px;
     }
-
     h1 {
-      margin-top: 20px;
-      color: #333;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
     }
-
-    #gameArea {
-      position: relative;
-      margin: 20px auto;
-      width: 90%;
-      max-width: 500px;
-      height: 400px;
-      background: white;
-      border: 2px solid #333;
-      overflow: hidden;
-      border-radius: 10px;
+    #question {
+      font-size: 2rem;
+      margin: 20px 0;
     }
-
-    #box {
-      width: 50px;
-      height: 50px;
-      background-color: crimson;
-      position: absolute;
+    input[type=number] {
+      padding: 10px;
+      width: 100px;
+      font-size: 1.5rem;
       border-radius: 5px;
-      cursor: pointer;
-      transition: all 0.2s ease;
+      border: 2px solid #00ffcc;
+      background: black;
+      color: #00ffcc;
     }
-
-    #score, #timer {
-      font-size: 20px;
-      margin: 10px;
-    }
-
     button {
       padding: 10px 20px;
-      margin-top: 10px;
-      font-size: 16px;
-      background: #333;
-      color: white;
+      font-size: 1.2rem;
+      margin-left: 10px;
+      background: #00ffcc;
+      color: black;
       border: none;
       border-radius: 5px;
       cursor: pointer;
     }
-
-    button:hover {
-      background: #555;
+    #score, #timer, #topScore {
+      font-size: 1.2rem;
+      margin: 15px;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .dark-mode {
+      background-color: #1a1a1a;
+      color: #00ffcc;
+    }
+    .light-mode {
+      background-color: #f0f0f0;
+      color: #333;
     }
   </style>
 </head>
-<body>
+<body class="dark-mode">
 
-  <h1>🎯 Catch the Box!</h1>
-  <div id="score">Score: 0</div>
-  <div id="timer">Time Left: 30</div>
-  <div id="gameArea">
-    <div id="box" style="display: none;"></div>
-  </div>
-  <button onclick="startGame()">Start Game</button>
+  <h1>👨‍‍🎓 Math Ninja: Fast Fingers</h1>
+  <div id="score">Score: <span id="scoreNum">0</span></div>
+  <div id="topScore">Top Score: <span id="topScoreNum">0</span></div>
+  <div id="timer">Time Left: <span id="time">60</span> sec</div>
+
+  <div id="question">5 + 3 = ?</div>
+
+  <input type="number" id="answer" placeholder="Your Answer">
+  <button onclick="submitAnswer()">Go</button>
+  <button onclick="toggleTheme()">Toggle Theme</button>
+
+  <div id="result"></div>
+
+  <audio id="correctSound" src="https://assets.mixkit.co/sfx/preview/mixkit-correct-answer-reward-952.mp3"></audio>
+  <audio id="wrongSound" src="https://assets.mixkit.co/sfx/preview/mixkit-wrong-answer-fail-notification-946.mp3"></audio>
+  <audio id="gameOverSound" src="https://assets.mixkit.co/sfx/preview/mixkit-arcade-retro-game-over-213.mp3"></audio>
 
   <script>
+    let num1, num2, operator, correctAnswer;
     let score = 0;
-    let timeLeft = 30;
-    let gameInterval, boxTimeout;
-    const box = document.getElementById("box");
-    const gameArea = document.getElementById("gameArea");
-    const scoreDisplay = document.getElementById("score");
-    const timerDisplay = document.getElementById("timer");
+    let topScore = localStorage.getItem("topScore") || 0;
+    let timeLeft = 60;
+    const answerInput = document.getElementById("answer");
+    const correctSound = document.getElementById("correctSound");
+    const wrongSound = document.getElementById("wrongSound");
+    const gameOverSound = document.getElementById("gameOverSound");
 
-    function randomPosition() {
-      const maxX = gameArea.clientWidth - 50;
-      const maxY = gameArea.clientHeight - 50;
-      const x = Math.floor(Math.random() * maxX);
-      const y = Math.floor(Math.random() * maxY);
-      box.style.left = `${x}px`;
-      box.style.top = `${y}px`;
+    document.getElementById("topScoreNum").innerText = topScore;
+
+    function generateQuestion() {
+      const ops = ['+', '-', '*'];
+      num1 = Math.floor(Math.random() * 10 + 1);
+      num2 = Math.floor(Math.random() * 10 + 1);
+      operator = ops[Math.floor(Math.random() * ops.length)];
+
+      if (operator === '+') correctAnswer = num1 + num2;
+      if (operator === '-') correctAnswer = num1 - num2;
+      if (operator === '*') correctAnswer = num1 * num2;
+
+      document.getElementById("question").innerText = `${num1} ${operator} ${num2} = ?`;
     }
 
-    function showBox() {
-      randomPosition();
-      box.style.display = "block";
-      boxTimeout = setTimeout(() => {
-        box.style.display = "none";
-      }, 1000);
+    function submitAnswer() {
+      const userAnswer = Number(answerInput.value);
+      const resultText = document.getElementById("result");
+
+      if (userAnswer === correctAnswer) {
+        score++;
+        resultText.innerText = "✅ Correct!";
+        correctSound.play();
+      } else {
+        resultText.innerText = `❌ Wrong! Correct: ${correctAnswer}`;
+        wrongSound.play();
+      }
+
+      document.getElementById("scoreNum").innerText = score;
+      answerInput.value = "";
+      generateQuestion();
     }
 
-    box.addEventListener("click", () => {
-      score++;
-      scoreDisplay.innerText = `Score: ${score}`;
-      box.style.display = "none";
-      clearTimeout(boxTimeout);
-    });
-
-    function startGame() {
-      score = 0;
-      timeLeft = 30;
-      scoreDisplay.innerText = `Score: ${score}`;
-      timerDisplay.innerText = `Time Left: ${timeLeft}`;
-      box.style.display = "none";
-
-      gameInterval = setInterval(() => {
+    function countdown() {
+      const timer = setInterval(() => {
         timeLeft--;
-        timerDisplay.innerText = `Time Left: ${timeLeft}`;
-        showBox();
+        document.getElementById("time").innerText = timeLeft;
+
         if (timeLeft <= 0) {
-          clearInterval(gameInterval);
-          box.style.display = "none";
-          alert(`Time's up! 🎉 Your Score: ${score}`);
+          clearInterval(timer);
+          gameOverSound.play();
+          document.getElementById("question").innerText = "⏰ Time's Up!";
+          document.getElementById("result").innerText = `🏆 Final Score: ${score}`;
+          answerInput.disabled = true;
+
+          if (score > topScore) {
+            localStorage.setItem("topScore", score);
+            document.getElementById("topScoreNum").innerText = score;
+          }
         }
       }, 1000);
     }
+
+    function toggleTheme() {
+      const body = document.body;
+      if (body.classList.contains("dark-mode")) {
+        body.classList.remove("dark-mode");
+        body.classList.add("light-mode");
+      } else {
+        body.classList.remove("light-mode");
+        body.classList.add("dark-mode");
+      }
+    }
+
+    generateQuestion();
+    countdown();
+
+    answerInput.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") submitAnswer();
+    });
   </script>
+
 </body>
 </html>
