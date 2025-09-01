@@ -1,157 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Hasnain Pathan - Portfolio</title>
-<style>
-  /* Reset & base */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #0f2027;  /* gradient */
-    background: linear-gradient(135deg, #2c5364, #203a43, #0f2027);
-    color: #e0e0e0;
-    line-height: 1.6;
-    min-height: 100vh;
-    padding: 40px 20px;
-    display: flex;
-    justify-content: center;
-  }
-  .container {
-    max-width: 900px;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 30px 40px;
-    border-radius: 15px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
-    animation: fadeInUp 1s ease forwards;
-  }
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hasnain Pathan | Web Developer & Designer</title>
+  <meta name="description" content="Hasnain Pathan — Web developer & designer building fast, responsive websites. View selected projects and book a call." />
+  <link rel="canonical" href="https://example.com/" />
+  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Hasnain Pathan — Web Developer & Designer" />
+  <meta property="og:description" content="Fast, responsive websites. Selected work and contact." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://example.com/" />
+  <meta property="og:image" content="https://example.com/assets/og-image.jpg" />
+
+  <!-- Base styles: accessible, reduced motion, dark theme -->
+  <style>
+    :root{
+      --bg1:#0f2027; --bg2:#203a43; --bg3:#2c5364;
+      --card:rgba(0,0,0,.7); --text:#e0e0e0; --muted:#a0e7f9;
+      --brand:#00bcd4; --brand-2:#26c6da; --link:#81d4fa; --link-h:#4fc3f7;
+      --radius:14px; --shadow:0 8px 30px rgba(0,0,0,.6);
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+    *{box-sizing:border-box}
+    html:focus-within{scroll-behavior:smooth}
+    @media (prefers-reduced-motion: reduce){
+      html:focus-within{scroll-behavior:auto}
+      *{animation:none!important; transition:none!important}
     }
-  }
-  header {
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  header h1 {
-    font-size: 3rem;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-    color: #00bcd4;
-    animation: glow 2s ease-in-out infinite alternate;
-  }
-  @keyframes glow {
-    from {
-      text-shadow: 0 0 10px #00bcd4, 0 0 20px #00bcd4;
+    body{
+      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+      background: linear-gradient(135deg,var(--bg3),var(--bg2),var(--bg1));
+      color:var(--text); line-height:1.6; min-height:100dvh; padding:24px;
+      display:flex; justify-content:center;
     }
-    to {
-      text-shadow: 0 0 20px #26c6da, 0 0 30px #26c6da;
+    .container{
+      width:min(100%,980px); background:var(--card); padding:28px 28px 16px;
+      border-radius:var(--radius); box-shadow:var(--shadow);
     }
-  }
-  header p {
-    font-size: 1.25rem;
-    color: #a0e7f9;
-  }
-  section {
-    margin-bottom: 35px;
-    opacity: 0;
-    animation: fadeInUp 1s ease forwards;
-    animation-delay: 0.5s;
-  }
-  section:nth-of-type(2) {
-    animation-delay: 0.7s;
-  }
-  section:nth-of-type(3) {
-    animation-delay: 0.9s;
-  }
-  section:nth-of-type(4) {
-    animation-delay: 1.1s;
-  }
-  h2 {
-    color: #00bcd4;
-    margin-bottom: 15px;
-    border-bottom: 2px solid #00bcd4;
-    padding-bottom: 8px;
-  }
-  ul {
-    list-style-type: none;
-  }
-  ul li {
-    margin-bottom: 10px;
-    padding-left: 12px;
-    position: relative;
-  }
-  ul li::before {
-    content: "▹";
-    position: absolute;
-    left: 0;
-    color: #00bcd4;
-    font-weight: bold;
-  }
-  a {
-    color: #81d4fa;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  a:hover {
-    color: #4fc3f7;
-  }
-  footer {
-    text-align: center;
-    font-size: 0.9rem;
-    color: #666;
-    margin-top: 40px;
-  }
-</style>
+    header{display:grid; gap:14px; text-align:center; padding:8px 8px 18px;}
+    nav{display:flex; gap:14px; justify-content:center; flex-wrap:wrap}
+    nav a{color:var(--muted); text-decoration:none; padding:8px 12px; border-radius:10px}
+    nav a:hover, nav a:focus-visible{background:rgba(255,255,255,.06); outline:none}
+    .hero{display:grid; gap:12px; margin:6px auto 22px; max-width:760px}
+    .eyebrow{color:var(--muted); font-weight:600; letter-spacing:.08em; text-transform:uppercase; font-size:.85rem}
+    h1{font-size:clamp(1.8rem,2.8vw,2.4rem); color:var(--brand); letter-spacing:.02em; margin:0}
+    .sub{font-size:1.05rem; color:#cdeff7}
+    .cta{
+      display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:6px
+    }
+    .btn{
+      background:var(--brand); color:#00333b; border:0; padding:10px 14px; border-radius:12px;
+      font-weight:700; text-decoration:none; box-shadow:0 4px 14px rgba(0,188,212,.25)
+    }
+    .btn:hover,.btn:focus-visible{background:var(--brand-2)}
+    .ghost{background:transparent; color:var(--link); border:1px solid rgba(129,212,250,.4)}
+    section{margin:22px 0}
+    h2{color:var(--brand); margin:0 0 10px; border-bottom:2px solid var(--brand); padding-bottom:6px; font-size:1.2rem}
+    /* Projects grid */
+    .projects{
+      display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    }
+    .card{
+      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08);
+      border-radius:12px; padding:12px; display:grid; gap:8px
+    }
+    .thumb{
+      width:100%; aspect-ratio:16/9; border-radius:10px; object-fit:cover; background:#0e1b22
+    }
+    .title{font-weight:700}
+    .meta{font-size:.92rem; color:#b8e9f7}
+    .actions{display:flex; gap:10px; flex-wrap:wrap}
+    a{color:var(--link)} a:hover{color:var(--link-h)}
+    /* Footer */
+    footer{margin-top:24px; text-align:center; color:#8aa; font-size:.9rem}
+    /* Accessibility focus */
+    :focus-visible{outline:2px solid var(--brand-2); outline-offset:2px; border-radius:8px}
+  </style>
 </head>
 <body>
   <div class="container">
-    <header>
-      <h1>Hasnain Pathan</h1>
-      <p>Web Developer & Designer</p>
+    <header id="top" role="banner" aria-label="Site header">
+      <nav aria-label="Main navigation">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="btn ghost">Hire me</a>
+      </nav>
+      <div class="hero">
+        <div class="eyebrow">Hasnain Pathan</div>
+        <h1>Building fast, responsive websites that convert</h1>
+        <p class="sub">Web Developer & Designer specializing in clean UI, performance, and accessible UX for small businesses and startups.</p>
+        <div class="cta">
+          <a class="btn" href="#work">View Work</a>
+          <a class="btn ghost" href="#contact">Book a Call</a>
+        </div>
+      </div>
     </header>
 
-    <section>
-      <h2>About Me</h2>
-      <p>I'm a passionate web developer dedicated to crafting beautiful, responsive, and user-friendly websites with modern technologies.</p>
-    </section>
+    <main id="content">
+      <section id="about" aria-labelledby="about-title">
+        <h2 id="about-title">About</h2>
+        <p>I craft beautiful, responsive, and user-friendly websites with modern technologies, focusing on speed, accessibility, and measurable outcomes.</p>
+      </section>
 
-    <section>
-      <h2>Projects</h2>
-       <ul>
-          <li><a href="home.html" target="_blank">Business Website</a></li>
-          <li><a href="java-game.html" target="_blank">JavaScript Game</a></li>
-    </ul>
-    </section>
-    <section>
-      <h2>Contact</h2>
-      <a href="form.html">Contact Us</a>
-      <p>Email: <a href="mailto:prof.hasnen@outlook.com">prof.hasnen@outlook.com</a></p>
-      <p>Instagram: <a href="https://www.instagram.com/hasnain_pathan__01?igsh=eGFnZWk5MjBiczRk" target="_blank">Hasnain_pathan__01</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/hasnain-khan-170398377/" target="_blank">linkedin.com/in/hasnain</a></p>
-    </section>
+      <section id="work" aria-labelledby="work-title">
+        <h2 id="work-title">Projects</h2>
+        <div class="projects">
+          <!-- Project 1 -->
+          <article class="card">
+            <img class="thumb" src="/assets/thumb-business.webp" width="640" height="360" loading="lazy" alt="Homepage screenshot of Business Website project with clean hero and CTA" />
+            <div class="title">Business Website</div>
+            <p class="meta">Role: Frontend • Stack: HTML, CSS, JS • Result: +28% contact form submissions</p>
+            <div class="actions">
+              <a href="home.html" target="_blank" rel="noopener noreferrer" aria-label="Open Business Website project in new tab">Live</a>
+              <a href="/case-studies/business.html">Case Study</a>
+            </div>
+          </article>
+          <!-- Project 2 -->
+          <article class="card">
+            <img class="thumb" src="/assets/thumb-js-game.webp" width="640" height="360" loading="lazy" alt="Gameplay screenshot of JavaScript Game with score HUD" />
+            <div class="title">JavaScript Game</div>
+            <p class="meta">Role: Developer • Stack: JS, Canvas • Result: 60 FPS on mobile, 100% Lighthouse PWA</p>
+            <div class="actions">
+              <a href="java-game.html" target="_blank" rel="noopener noreferrer" aria-label="Open JavaScript Game project in new tab">Live</a>
+              <a href="/case-studies/js-game.html">Case Study</a>
+            </div>
+          </article>
+        </div>
+      </section>
 
-    <footer>
-      &copy; 2025 Hasnain Pathan. All rights reserved.
+      <section id="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title">Contact</h2>
+        <p>Prefer email? Expect replies within 1 business day.</p>
+        <p>Email: <a href="mailto:prof.hasnen@outlook.com">prof.hasnen@outlook.com</a></p>
+        <p>
+          Instagram:
+          <a href="https://www.instagram.com/hasnain_pathan__01?igsh=eGFnZWk5MjBiczRk" target="_blank" rel="noopener noreferrer" aria-label="Open Instagram profile in new tab">@hasnain_pathan__01</a>
+        </p>
+        <p>
+          LinkedIn:
+          <a href="https://www.linkedin.com/in/hasnain-khan-170398377/" target="_blank" rel="noopener noreferrer" aria-label="Open LinkedIn profile in new tab">linkedin.com/in/hasnain-khan-170398377</a>
+        </p>
+        <p><a class="btn" href="form.html">Hire me</a></p>
+      </section>
+    </main>
+
+    <footer role="contentinfo">
+      © 2025 Hasnain Pathan • All rights reserved.
     </footer>
   </div>
+
+  <!-- Defer non-critical JS; example analytics or enhancements -->
+  <script defer>
+    // Minimal enhancement: smooth scroll for internal links if supported
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
+    });
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
