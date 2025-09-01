@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Case Study: JavaScript Game | Hasnain Pathan</title>
+  <meta name="description" content="Case study for JavaScript Game project by Hasnain Pathan. See challenges, solutions, and results." />
+  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
+  <style>
+    body {
+      background: linear-gradient(135deg, #2c5364, #203a43, #0f2027);
+      color: #e0e0e0;
+      font-family: system-ui, Segoe UI, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+    }
+    .container {
+      background: rgba(0,0,0,.7);
+      box-shadow: 0 8px 30px rgba(0,0,0,.6);
+      border-radius: 14px;
+      max-width: 740px;
+      width: 100%;
+      margin: 32px;
+      padding: 32px 24px;
+      animation: fadeIn 1.2s ease;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(40px);}
+      100% { opacity: 1; transform: translateY(0);}
+    }
+    h1 {
+      color: #00bcd4;
+      margin-top: 0;
+      margin-bottom: 18px;
+    }
+    h2 {
+      color: #26c6da;
+      border-bottom: 2px solid #26c6da;
+      font-size: 1.2rem;
+      margin-top: 32px;
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+    }
+    .meta {
+      background: rgba(255,255,255,.05);
+      color: #b8e9f7;
+      padding: 8px 12px;
+      border-radius: 10px;
+      margin-bottom: 22px;
+      font-size: 1.05rem;
+    }
+    ul {
+      padding-left: 1.2em;
+    }
+    .btn {
+      display: inline-block;
+      background: #00bcd4;
+      color: #00333b;
+      border-radius: 10px;
+      padding: 10px 18px;
+      font-weight: bold;
+      text-decoration: none;
+      margin-top: 24px;
+      box-shadow: 0 4px 14px rgba(0,188,212,.18);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn:hover {
+      background: #26c6da;
+      transform: scale(1.05);
+    }
+    footer {
+      margin-top: 28px;
+      text-align: center;
+      color: #8aa;
+      font-size: .92rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Case Study: JavaScript Game</h1>
+    <div class="meta">
+      <strong>Role:</strong> Developer<br>
+      <strong>Stack:</strong> JavaScript, Canvas API<br>
+      <strong>Result:</strong> 60 FPS on mobile, 100% Lighthouse PWA score
+    </div>
+
+    <h2>Overview</h2>
+    <p>
+      This project is a browser-based game built entirely with JavaScript and the Canvas API. The goal was to demonstrate game development fundamentals, deliver smooth performance on mobile devices, and utilize progressive web app (PWA) technologies.
+    </p>
+
+    <h2>Goals</h2>
+    <ul>
+      <li>Build a fun, interactive browser game playable on desktop and mobile</li>
+      <li>Achieve smooth 60 FPS animation and gameplay, even on low-end devices</li>
+      <li>Implement PWA features for offline play and installability</li>
+      <li>Score 100% on Lighthouse performance, accessibility, and PWA audits</li>
+    </ul>
+
+    <h2>Challenges</h2>
+    <ul>
+      <li>Rendering and game logic optimization for mobile devices</li>
+      <li>Efficient asset management with limited resources</li>
+      <li>Ensuring accessibility for different user input types (touch, keyboard)</li>
+    </ul>
+
+    <h2>Solutions</h2>
+    <ul>
+      <li>Used requestAnimationFrame and optimized draw calls for smooth performance</li>
+      <li>Minimized asset sizes and deferred non-critical scripts</li>
+      <li>Implemented responsive controls (touch and keyboard)</li>
+      <li>Configured service worker for offline caching and PWA compliance</li>
+    </ul>
+
+    <h2>Impact</h2>
+    <ul>
+      <li>Consistent 60 FPS on mobile and desktop</li>
+      <li>100% Lighthouse score for PWA, performance, and accessibility</li>
+      <li>Positive feedback from users on responsiveness and ease of play</li>
+    </ul>
+
+    <a class="btn" href="/java-game.html" target="_blank">Play Live Game</a>
+
+    <footer>
+      &copy; 2025 Hasnain Pathan &mdash; <a href="/">Back to Portfolio</a>
+    </footer>
+  </div>
+</body>
+</html>
