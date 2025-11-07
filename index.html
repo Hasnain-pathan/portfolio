@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Professional Portfolio</title>
+    <title>Hasnain Khan - Digital Marketing & GHL Expert</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
@@ -33,6 +33,7 @@
             background-color: var(--background-color);
             color: var(--primary-color);
             line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll from animations */
         }
 
         h1, h2, h3 {
@@ -75,11 +76,18 @@
             align-items: center;
         }
 
+        /* --- NEW LOGO STYLE --- */
         .logo {
             font-family: var(--font-heading);
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             font-weight: 700;
+            color: var(--primary-color);
         }
+        .logo span {
+            color: var(--secondary-color);
+            font-family: 'Playfair Display', serif;
+        }
+        /* --- End Logo Style --- */
 
         .nav-links {
             list-style: none;
@@ -107,15 +115,20 @@
                 transform: scale(1.1) translate(-2%, 0); /* Slow zoom and pan */
             }
         }
-
-        @keyframes fadeIn {
+        
+        /* --- IMPROVISED ANIMATION --- */
+        @keyframes slideInUp {
             from {
                 opacity: 0;
+                transform: translateY(50px);
             }
             to {
                 opacity: 1;
+                transform: translateY(0);
             }
         }
+        /* --- End Improvised Animation --- */
+
 
         /* --- 1. Hero Section (Cinematic Intro) --- */
         .hero {
@@ -129,31 +142,37 @@
             padding: 0 2rem;
         }
 
-        /* The background image container */
         .hero-image-container {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('hero-background.jpg'); /* <-- REPLACE ME */
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('hero-background.jpg'); /* <-- REPLACE ME */
             background-size: cover;
             background-position: center;
-            /* Apply the animation */
             animation: kenBurns 25s ease-in-out infinite alternate;
         }
 
         .hero-content {
-            position: relative; /* Sits on top of the image */
+            position: relative;
             z-index: 2;
-            /* Apply fade-in animation to content */
-            animation: fadeIn 2s ease-out 0.5s forwards;
-            opacity: 0; /* Start invisible */
+        }
+        
+        /* --- IMPROVISED HERO TEXT ANIMATION (STAGGERED) --- */
+        .hero-title,
+        .hero-subtitle,
+        .hero-content .cta-button {
+            /* Start hidden */
+            opacity: 0;
+            /* Use 'forwards' to keep state after animation */
+            animation: slideInUp 1s ease-out forwards;
         }
 
         .hero-title {
             font-size: 4rem;
             margin-bottom: 0.5rem;
+            animation-delay: 0.5s; /* 1st */
         }
 
         .hero-subtitle {
@@ -161,7 +180,13 @@
             font-weight: 300;
             color: var(--secondary-color);
             margin-bottom: 2rem;
+            animation-delay: 0.8s; /* 2nd */
         }
+        
+        .hero-content .cta-button {
+             animation-delay: 1.1s; /* 3rd */
+        }
+        /* --- End Improvised Animation --- */
 
         .cta-button {
             display: inline-block;
@@ -179,12 +204,13 @@
             background: var(--primary-color);
             color: var(--background-color);
             transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(240, 165, 0, 0.3);
         }
 
         /* --- 2. Content Sections --- */
         .content-section {
             padding: 6rem 5%;
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
@@ -195,7 +221,6 @@
             position: relative;
         }
 
-        /* Cinematic underline for titles */
         .section-title::after {
             content: '';
             display: block;
@@ -209,6 +234,8 @@
             font-size: 1.1rem;
             text-align: center;
             line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         /* --- 3. Parallax Section --- */
@@ -217,73 +244,60 @@
             background-image: url('parallax-background.jpg'); /* <-- REPLACE ME */
             background-size: cover;
             background-position: center;
-            /* This is the magic line for CSS parallax */
             background-attachment: fixed;
             position: relative;
         }
 
-        /* --- 4. Portfolio Grid --- */
-        .portfolio-grid {
+        /* =================================
+        ==  NEW "MY SERVICES" SECTION  ==
+        =================================
+        */
+        .service-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
 
-        .portfolio-item {
+        .service-card {
             background: var(--surface-color);
             border-radius: 8px;
-            overflow: hidden;
-            position: relative;
-            cursor: pointer;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            /* Add animation properties */
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            border: 1px solid #333;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            /* IMPROVISED ANIMATION: Set up for hover */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
-        .portfolio-item.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .portfolio-item:hover {
+        .service-card:hover {
+            transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border-color: var(--secondary-color);
         }
 
-        .portfolio-item img {
-            transition: transform 0.4s ease;
-        }
-
-        .portfolio-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: linear-gradient(to top, rgba(18, 18, 18, 0.9), transparent);
-            padding: 3rem 1.5rem 1.5rem;
-            transform: translateY(100%); /* Start hidden */
-            transition: transform 0.4s ease-out;
-        }
-
-        .portfolio-item:hover .portfolio-overlay {
-            transform: translateY(0);
-        }
-
-        .portfolio-item:hover img {
-            transform: scale(1.05); /* Slight zoom on hover */
-        }
-
-        .portfolio-overlay h3 {
+        /* A simple CSS icon */
+        .service-icon {
+            font-size: 2.5rem;
             color: var(--secondary-color);
-            margin-bottom: 0.5rem;
+            line-height: 1;
+            margin-bottom: 1rem;
         }
-        
-        /* =================================
-        ==  NEW CSS FOR OTHER PROJECTS ==
-        =================================
-        */
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: #ccc;
+        }
+        /* --- END OF NEW SERVICES SECTION --- */
+
+
+        /* --- 5. "Other Projects" Section --- */
         .other-projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -330,10 +344,8 @@
         .project-link-card:hover span {
             color: var(--primary-color);
         }
-        /* --- END OF NEW CSS --- */
 
-
-        /* --- 5. Contact Form (was 5, now 6) --- */
+        /* --- 6. Contact Form --- */
         .contact-form-section {
             background: var(--surface-color);
             border-radius: 8px;
@@ -386,32 +398,23 @@
         =================================
         */
         
-        /* This class will be added to elements in the HTML.
-         By default, they are hidden and moved down.
-        */
         .animate-on-scroll {
             opacity: 0;
-            transform: translateY(40px);
+            transform: translateY(50px); /* Increased from 40px */
             transition: opacity 1s ease-out, transform 1s ease-out;
-            will-change: opacity, transform; /* Helps browser optimize */
+            will-change: opacity, transform;
         }
 
-        /* The JavaScript will add this class when the element
-         is scrolled into view, triggering the transition.
-        */
         .animate-on-scroll.is-visible {
             opacity: 1;
             transform: translateY(0);
         }
         
-        /* Exception for portfolio items, we want them to have their own animation */
-        .portfolio-item.animate-on-scroll {
-             transition: none; /* Disable the default, use its own styles */
-        }
-
-        /* Apply default animation to new project cards too */
+        /* Apply default animation to new cards */
+        .service-card.animate-on-scroll,
         .project-link-card.animate-on-scroll {
-             transition: none; /* Will be handled by JS */
+             transition: opacity 0.6s ease-out, transform 0.6s ease-out,
+                         box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
     </style>
@@ -420,11 +423,12 @@
 
     <header class="main-header">
         <nav>
-            <div class="logo">YourLogo</div>
+            <div class="logo">Hasnain<span>Khan</span></div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#other-projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -434,56 +438,58 @@
         <div class="hero-image-container">
             </div>
         <div class="hero-content">
-            <h1 class="hero-title">Your Name Here</h1>
-            <p class="hero-subtitle">Your Professional Title (e.g., Digital Marketer, Developer)</p>
-            <a href="#portfolio" class="cta-button">View My Work</a>
+            <h1 class="hero-title">HASNAIN KHAN</h1>
+            <p class="hero-subtitle">Digital Marketing Specialist & GoHighLevel Expert</p>
+            <a href="#services" class="cta-button">See My Services</a>
         </div>
     </section>
 
     <section id="about" class="content-section animate-on-scroll">
         <h2 class="section-title">About Me</h2>
         <p class="section-content">
-            Welcome to my portfolio. I am a passionate and results-driven professional specializing in [Your Specialty]. 
-            With over [X] years of experience, I've had the privilege of working on a diverse range of projects...
+            I'm Hasnain, a results-driven digital marketing specialist with a core expertise in the GoHighLevel platform. 
+            I help businesses scale by building automated, high-converting marketing funnels. From paid advertising to complex automations, 
+            I architect and execute strategies that turn clicks into customers.
         </p>
     </section>
 
     <section class="parallax-section animate-on-scroll"></section>
 
-    <section id="portfolio" class="content-section animate-on-scroll">
-        <h2 class="section-title">My Portfolio</h2>
-        <div class="portfolio-grid">
+    <section id="services" class="content-section animate-on-scroll">
+        <h2 class="section-title">My Services</h2>
+        <div class="service-grid">
             
-            <div class="portfolio-item animate-on-scroll">
-                <img src="project-1.jpg" alt="Project 1 Screenshot"> <div class="portfolio-overlay">
-                    <h3>Project Title One</h3>
-                    <p>A brief description of the project and its results.</p>
-                </div>
+            <div class="service-card animate-on-scroll" style="transition-delay: 0.1s;">
+                <div class="service-icon">📈</div>
+                <h3>Performance Marketing</h3>
+                <p>Driving targeted traffic with data-backed strategies in Google Ads, Meta Ads, and social media campaigns.</p>
             </div>
 
-            <div class="portfolio-item animate-on-scroll">
-                <img src="project-2.jpg" alt="Project 2 Screenshot"> <div class="portfolio-overlay">
-                    <h3>Project Title Two</h3>
-                    <p>A brief description of the project and its results.</p>
-                </div>
+            <div class="service-card animate-on-scroll" style="transition-delay: 0.2s;">
+                <div class="service-icon">⚙️</div>
+                <h3>GoHighLevel Funnels</h3>
+                <p>Building, managing, and optimizing your entire GHL ecosystem, from landing pages to sales pipelines.</p>
             </div>
 
-            <div class="portfolio-item animate-on-scroll">
-                <img src="project-3.jpg" alt="Project 3 Screenshot"> <div class="portfolio-overlay">
-                    <h3>Project Title Three</h3>
-                    <p>A brief description of the project and its results.</p>
-                </div>
+            <div class="service-card animate-on-scroll" style="transition-delay: 0.3s;">
+                <div class="service-icon">🤖</div>
+                <h3>Marketing Automation</h3>
+                <p>Creating complex workflows, email/SMS campaigns, and triggers in GHL to nurture leads automatically.</p>
+            </div>
+
+            <div class="service-card animate-on-scroll" style="transition-delay: 0.4s;">
+                <div class="service-icon">✍️</div>
+                <h3>SEO & Content Strategy</h3>
+                <p>Boosting organic visibility and establishing authority through targeted SEO and high-value content.</p>
             </div>
 
         </div>
     </section>
-
-
     <section id="other-projects" class="content-section animate-on-scroll">
         <h2 class="section-title">My Other Projects</h2>
         <div class="other-projects-grid">
             
-            <a href="https://hasnain-pathan.github.io/portfolio/home.html" target="_blank" rel="noopener noreferrer" class="project-link-card animate-on-scroll">
+            <a href="https://hasnain-pathan.github.io/portfolio/home.html" target="_blank" rel="noopener noreferrer" class="project-link-card animate-on-scroll" style="transition-delay: 0.1s;">
                 <div class="project-link-content">
                     <h3>My First Portfolio</h3>
                     <p>An earlier version of my personal portfolio site.</p>
@@ -491,7 +497,7 @@
                 </div>
             </a>
 
-            <a href="https://hasnain-pathan.github.io/portfolio/java-game.html" target="_blank" rel="noopener noreferrer" class="project-link-card animate-on-scroll">
+            <a href="https://hasnain-pathan.github.io/portfolio/java-game.html" target="_blank" rel="noopener noreferrer" class="project-link-card animate-on-scroll" style="transition-delay: 0.2s;">
                 <div class="project-link-content">
                     <h3>Java-Based Game</h3>
                     <p>A simple game I built using Java.</p>
@@ -501,46 +507,38 @@
 
         </div>
     </section>
+
     <section id="contact" class="content-section contact-form-section animate-on-scroll">
-        <h2 class="section-title">Get In Touch</h2>
+        <h2 class="section-title">Let's Build Together</h2>
         <form class="contact-form">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+            <textarea name="message" placeholder="How can I help you scale?" rows="5" required></textarea>
             <button type="submit" class="cta-button">Send Message</button>
         </form>
     </section>
 
     <footer class="main-footer">
-        <p>&copy; 2025 Your Name. All rights reserved.</p>
+        <p>&copy; 2025 Hasnain Khan. All rights reserved.</p>
     </footer>
 
 
     <script>
-        // Wait for the document to be fully loaded and parsed
         document.addEventListener("DOMContentLoaded", () => {
 
-            // Select all elements you want to animate on scroll
             const animatedElements = document.querySelectorAll('.animate-on-scroll');
 
-            // Set up the Intersection Observer
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    // If the element is intersecting (in view)
                     if (entry.isIntersecting) {
-                        // Add the 'is-visible' class to trigger the CSS transition
                         entry.target.classList.add('is-visible');
-                        
-                        // Stop observing the element so the animation doesn't re-run
                         observer.unobserve(entry.target);
                     }
                 });
             }, {
-                // Options for the observer
                 threshold: 0.1 // Trigger when 10% of the element is in view
             });
 
-            // Loop over all the selected elements and start observing them
             animatedElements.forEach(element => {
                 observer.observe(element);
             });
